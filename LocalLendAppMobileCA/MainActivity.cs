@@ -13,6 +13,7 @@ namespace LocalLendAppMobileCA
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        Button btnLend;
         List<Item> itemList = new List<Item>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -21,6 +22,7 @@ namespace LocalLendAppMobileCA
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
+            btnLend = FindViewById<Button>(Resource.Id.btnLend);
             var lvItems = FindViewById<ListView>(Resource.Id.lvItems);
 
             LoadItemsFromDataStore();
@@ -28,6 +30,14 @@ namespace LocalLendAppMobileCA
             lvItems.Adapter = new BorrowListAdapter(this, itemList);
 
             lvItems.ItemClick += LvItems_ItemClick;
+            btnLend.Click += BtnLend_Click;
+        }
+
+        private void BtnLend_Click(object sender, EventArgs e)
+        {
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            LendDialogFrg lendDialog = new LendDialogFrg();
+            lendDialog.Show(transaction, "lendDialog fragment");
         }
 
         private void LvItems_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
