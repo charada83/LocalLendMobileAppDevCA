@@ -63,6 +63,7 @@
     <Compile Include="Adapters\BorrowListAdapterViewHolder.cs" />
     <Compile Include="BorrowItemDetailActivity.cs" />
     <Compile Include="ContactDialogFragment.cs" />
+    <Compile Include="DataAccess\DataStore.cs" />
     <Compile Include="DataAccess\Item.cs" />
     <Compile Include="DataAccess\SQLite.cs" />
     <Compile Include="DataAccess\SQLiteAsync.cs" />
@@ -113,7 +114,7 @@
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\BorrowLendButtonStyles.xml" />
+    <AndroidResource Include="Resources\drawable\borrowlendbuttonstyles.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\powerdrill.jpg" />

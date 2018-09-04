@@ -7,14 +7,21 @@ using LocalLendAppMobileCA.DataAccess;
 using System;
 using LocalLendAppMobileCA.Adapters;
 using Android.Content;
+using System.Linq;
 
 namespace LocalLendAppMobileCA
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        DataStore database = new DataStore();
+
         Button btnLend;
         List<Item> itemList = new List<Item>();
+        ListView lvItems;
+        BorrowListAdapter adapter;
+        EditText txtSearch;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -23,11 +30,15 @@ namespace LocalLendAppMobileCA
             SetContentView(Resource.Layout.activity_main);
 
             btnLend = FindViewById<Button>(Resource.Id.btnLend);
-            var lvItems = FindViewById<ListView>(Resource.Id.lvItems);
+            lvItems = FindViewById<ListView>(Resource.Id.lvItems);
+            txtSearch = FindViewById<EditText>(Resource.Id.txtSearch);
+
+            txtSearch.Alpha = 0;
 
             LoadItemsFromDataStore();
 
-            lvItems.Adapter = new BorrowListAdapter(this, itemList);
+            adapter = new BorrowListAdapter(this, itemList);
+            lvItems.Adapter = adapter;
 
             lvItems.ItemClick += LvItems_ItemClick;
             btnLend.Click += BtnLend_Click;
@@ -38,6 +49,7 @@ namespace LocalLendAppMobileCA
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             LendDialogFrg lendDialog = new LendDialogFrg();
             lendDialog.Show(transaction, "lendDialog fragment");
+
         }
 
         private void LvItems_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -56,6 +68,8 @@ namespace LocalLendAppMobileCA
         {
             itemList.Add(new Item("Power Drill", "Powerful Tool", Resource.Drawable.powerdrill));
             itemList.Add(new Item("Wheelbarrow", "Good condition, can lend for up to 3 days", Resource.Drawable.wheelbarrow));
+            //IEnumerable<Item> items = database.GetItems();
+            //itemList = items.ToList();
         }
     }
 }

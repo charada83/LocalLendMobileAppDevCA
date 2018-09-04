@@ -17,6 +17,8 @@ namespace LocalLendAppMobileCA
     [Register("LocalLendAppMobileCA.LendDialogFrg")]
     public class LendDialogFrg : DialogFragment
     {
+        DataStore database = new DataStore();
+
         private EditText txtEditItemName;
         private EditText txtEditItemDescription;
         private ImageView imgUpload;
@@ -83,7 +85,15 @@ namespace LocalLendAppMobileCA
 
             //database.InsertIntoTableItem(item);
             Toast.MakeText(Activity, "Your item has been added", ToastLength.Long).Show();
-            // Dismiss();
+            Dismiss();
+            
+
+        }
+
+        public override void OnActivityCreated(Bundle savedInstanceState)
+        {
+            Dialog.Window.RequestFeature(WindowFeatures.NoTitle);
+            base.OnActivityCreated(savedInstanceState);
         }
 
     }
