@@ -36,7 +36,12 @@
             android:layout_height="0dp"
             android:layout_weight="0.5"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+			android:background="#02D411"
+			android:textColor="#FFF"
+			android:layout_marginBottom="10dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"/>
         <Button
             android:id="@+id/btnBack"
             android:text="@string/backToList"
@@ -44,6 +49,11 @@
             android:layout_height="0dp"
             android:layout_weight="0.5"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+			android:background="#02D411"
+			android:textColor="#FFF"
+			android:layout_marginBottom="10dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"/>
     </LinearLayout>
 </LinearLayout>

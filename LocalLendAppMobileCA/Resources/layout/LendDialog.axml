@@ -5,14 +5,13 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-	android:padding="20dp">
+	android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
     <EditText
         android:id="@+id/txtEditItemName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="25dp"
         android:hint="Item Name"
         android:paddingLeft="10dp" />
@@ -22,8 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:hint="Item Description"
         android:paddingLeft="10dp" />
     <LinearLayout
@@ -45,7 +42,8 @@
             android:text="@string/addImage"
             android:layout_weight="1"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp" 
+		/>
     </LinearLayout>
     <Button
         android:id="@+id/btnAddItem"
@@ -61,8 +59,8 @@
         android:paddingBottom="10dp"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+		android:background="#02D411"
+		android:textColor="#FFF"/>
     <Button
         android:id="@+id/btnCancel"
         android:layout_width="match_parent"
@@ -75,7 +73,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:paddingBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" 
-		android:layout_marginBottom="20dp"/>
+		android:layout_marginBottom="20dp"
+		android:background="#02D411"
+		android:textColor="#FFF"/>
 </LinearLayout>

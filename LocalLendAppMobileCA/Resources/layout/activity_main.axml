@@ -24,7 +24,8 @@
         android:layout_marginBottom="10dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="#BA66CD"/>
+        android:background="#02D411"
+		android:textColor="#FFF"/>
     <ListView
         android:id="@+id/lvItems"
         android:layout_width="match_parent"
