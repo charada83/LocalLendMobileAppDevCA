@@ -31,6 +31,8 @@ namespace LocalLendAppMobileCA
     {
         DataStore database = new DataStore();
 
+        public static readonly int ChooseImageId = 300;
+
         private EditText txtEditItemName;
         private EditText txtEditItemDescription;
         private ImageView imgUpload;
@@ -68,15 +70,18 @@ namespace LocalLendAppMobileCA
 
         private void BtnAddImage_Click(object sender, EventArgs e)
         {
-            Intent uploadImageIntent = new Intent(Intent.ActionPick, Android.Provider.MediaStore.Images.Media.ExternalContentUri);
-            StartActivityForResult(uploadImageIntent, 300);
+            Intent uploadImageIntent = new Intent();
+            uploadImageIntent.SetType("image/*");
+            uploadImageIntent.SetAction(Intent.ActionGetContent);
+            StartActivityForResult(Intent.CreateChooser(uploadImageIntent, "Choose Image"), ChooseImageId);
+           
         }
 
         public override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
-            if ((requestCode == 300) && (resultCode == Result.Ok))
+            if ((requestCode == ChooseImageId) && (resultCode == Result.Ok))
             {
                 Android.Net.Uri selectedImage = data.Data;
                 imgUpload.SetImageURI(selectedImage);
@@ -93,16 +98,8 @@ namespace LocalLendAppMobileCA
             if (OnCreateItem != null)
             {
 
-
                 OnCreateItem.Invoke(this, new AddItemToListEventArgs(txtEditItemName.Text, txtEditItemDescription.Text));
-                //Item item = new Item()
-                //{
-                //    ItemName = txtEditItemName.Text,
-                //    ItemDescription = txtEditItemDescription.Text,
-                //    // ImageDrawableID = imgUpload
-                //};
-
-                //database.InsertIntoTableItem(item);
+                
                 Toast.MakeText(Activity, "Your item has been added", ToastLength.Long).Show();
             }
             this.Dismiss();
