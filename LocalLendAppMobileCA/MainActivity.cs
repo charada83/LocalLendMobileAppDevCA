@@ -15,7 +15,6 @@ using Android.Runtime;
 namespace LocalLendAppMobileCA
 {
    
-
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
     public class MainActivity : AppCompatActivity
     {
@@ -49,6 +48,7 @@ namespace LocalLendAppMobileCA
            
         }
 
+        //Search filters based on typing item name
         private void TxtSearch_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
         {
             var itemToLower = txtSearch.Text.ToLower();
@@ -60,6 +60,7 @@ namespace LocalLendAppMobileCA
             lvItems.Adapter = adapter;
         }
 
+        //Opens LendDialog to add an item to the BorrowList
         private void BtnLend_Click(object sender, EventArgs e)
         {
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
@@ -69,6 +70,7 @@ namespace LocalLendAppMobileCA
             lendDialog.OnCreateItem += LendDialog_OnCreateItem;
         }
 
+        //Adds item and refreshes BorrowList in MainActivity 
         private void LendDialog_OnCreateItem(object sender, AddItemToListEventArgs e)
         {
             Item item = new Item()
@@ -86,6 +88,7 @@ namespace LocalLendAppMobileCA
 
         }
 
+        //Opens detail page for an item
         private void LvItems_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var itemClickPosition = e.Position;
@@ -98,6 +101,7 @@ namespace LocalLendAppMobileCA
             StartActivity(getItem);
         }
 
+        //Loads items to BorrowList from Database
         private void LoadItemsFromDataStore()
         {
             //itemList.Add(new Item("Power Drill", "Powerful Tool", Resource.Drawable.powerdrill));

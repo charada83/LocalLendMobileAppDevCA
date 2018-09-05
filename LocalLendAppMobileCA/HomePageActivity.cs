@@ -32,6 +32,7 @@ namespace LocalLendAppMobileCA
             btnStartBorrowing.Click += BtnStartBorrowing_Click;
         }
 
+        //Opens main BorrowList page
         private void BtnStartBorrowing_Click(object sender, EventArgs e)
         {
             Intent openMainBorrowListIntent = new Intent(this, typeof(MainActivity));

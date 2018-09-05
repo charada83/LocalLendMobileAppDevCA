@@ -26,7 +26,6 @@ namespace LocalLendAppMobileCA
         }
     }
 
-    //[Register("LocalLendAppMobileCA.LendDialogFrg")]
     public class LendDialogFrg : DialogFragment
     {
         DataStore database = new DataStore();
@@ -68,6 +67,7 @@ namespace LocalLendAppMobileCA
             return lendView;
         }
 
+        //Opens phones gallery to select an image
         private void BtnAddImage_Click(object sender, EventArgs e)
         {
             Intent uploadImageIntent = new Intent();
@@ -77,6 +77,7 @@ namespace LocalLendAppMobileCA
            
         }
 
+        //Returns image from Gallery to LendDialog
         public override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
@@ -93,18 +94,17 @@ namespace LocalLendAppMobileCA
             Dismiss();
         }
 
+        //Adds item to DB after sumbission in LendDialog
         private void BtnAddItem_Click(object sender, EventArgs e)
         {
             if (OnCreateItem != null)
             {
-
                 OnCreateItem.Invoke(this, new AddItemToListEventArgs(txtEditItemName.Text, txtEditItemDescription.Text));
                 
                 Toast.MakeText(Activity, "Your item has been added", ToastLength.Long).Show();
             }
             this.Dismiss();
             
-
         }
 
         public override void OnActivityCreated(Bundle savedInstanceState)

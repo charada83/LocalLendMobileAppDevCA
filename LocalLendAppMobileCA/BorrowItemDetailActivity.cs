@@ -50,6 +50,7 @@ namespace LocalLendAppMobileCA
             Finish();
         }
 
+        //Opens Contact Dialog for borrower to send message to lender
         private void BtnContactLender_Click(object sender, EventArgs e)
         {
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
