@@ -16,7 +16,7 @@ namespace LocalLendAppMobileCA
 {
    
 
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
     public class MainActivity : AppCompatActivity
     {
         DataStore database = new DataStore();

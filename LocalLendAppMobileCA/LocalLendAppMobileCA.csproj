@@ -67,6 +67,7 @@
     <Compile Include="DataAccess\Item.cs" />
     <Compile Include="DataAccess\SQLite.cs" />
     <Compile Include="DataAccess\SQLiteAsync.cs" />
+    <Compile Include="HomePageActivity.cs" />
     <Compile Include="LendDialogFrg.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -142,6 +143,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\LendDialog.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\HomePage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
