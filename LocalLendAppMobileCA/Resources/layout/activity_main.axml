@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="Search Items"
-        android:layout_weight="5" />
+		/>
     <Button
         android:id="@+id/btnLend"
         android:layout_width="wrap_content"

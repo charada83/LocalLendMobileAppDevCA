@@ -8,9 +8,24 @@ using System;
 using LocalLendAppMobileCA.Adapters;
 using Android.Content;
 using System.Linq;
+using Android.Views;
+using Android.Support.V4.View;
+using Android.Runtime;
 
 namespace LocalLendAppMobileCA
 {
+    public class AddItemToListEventArgs : EventArgs
+    {
+        public string ItemName { get; set; }
+        public string ItemDescription { get; set; }
+
+        public AddItemToListEventArgs(string itemName, string itemDesc)
+        {
+            ItemName = itemName;
+            ItemDescription = itemDesc;
+        }
+    }
+
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
@@ -21,6 +36,8 @@ namespace LocalLendAppMobileCA
         ListView lvItems;
         BorrowListAdapter adapter;
         EditText txtSearch;
+
+        public EventHandler<AddItemToListEventArgs> OnCreateItem;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,15 +50,26 @@ namespace LocalLendAppMobileCA
             lvItems = FindViewById<ListView>(Resource.Id.lvItems);
             txtSearch = FindViewById<EditText>(Resource.Id.txtSearch);
 
-            txtSearch.Alpha = 0;
-
             LoadItemsFromDataStore();
 
             adapter = new BorrowListAdapter(this, itemList);
             lvItems.Adapter = adapter;
 
+            txtSearch.TextChanged += TxtSearch_TextChanged;
             lvItems.ItemClick += LvItems_ItemClick;
             btnLend.Click += BtnLend_Click;
+           
+        }
+
+        private void TxtSearch_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
+        {
+            var itemToLower = txtSearch.Text.ToLower();
+            List<Item> searchedItems = (from item in itemList
+                                        where item.ItemName.ToLower().StartsWith(itemToLower)
+                                        select item).ToList<Item>();
+
+            adapter = new BorrowListAdapter(this, searchedItems);
+            lvItems.Adapter = adapter;
         }
 
         private void BtnLend_Click(object sender, EventArgs e)
@@ -71,6 +99,8 @@ namespace LocalLendAppMobileCA
             //IEnumerable<Item> items = database.GetItems();
             //itemList = items.ToList();
         }
+
+        
     }
 }
 
