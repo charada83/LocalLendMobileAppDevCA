@@ -78,6 +78,16 @@ namespace LocalLendAppMobileCA.Adapters
         }
 
         public override Item this[int position] => ItemList[position];
+
+        public override void NotifyDataSetChanged()
+        {
+            base.NotifyDataSetChanged();
+        }
+
+        public void Clear()
+        {
+            ItemList.Clear();
+        }
     }
 
 }

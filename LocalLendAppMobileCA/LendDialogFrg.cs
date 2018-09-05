@@ -14,7 +14,19 @@ using LocalLendAppMobileCA.DataAccess;
 
 namespace LocalLendAppMobileCA
 {
-    [Register("LocalLendAppMobileCA.LendDialogFrg")]
+    public class AddItemToListEventArgs : EventArgs
+    {
+        public string ItemName { get; set; }
+        public string ItemDescription { get; set; }
+
+        public AddItemToListEventArgs(string itemName, string itemDesc) : base()
+        {
+            ItemName = itemName;
+            ItemDescription = itemDesc;
+        }
+    }
+
+    //[Register("LocalLendAppMobileCA.LendDialogFrg")]
     public class LendDialogFrg : DialogFragment
     {
         DataStore database = new DataStore();
@@ -25,6 +37,8 @@ namespace LocalLendAppMobileCA
         private Button btnAddImage;
         private Button btnAddItem;
         private Button btnCancel;
+
+        public event EventHandler<AddItemToListEventArgs> OnCreateItem;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -76,16 +90,22 @@ namespace LocalLendAppMobileCA
 
         private void BtnAddItem_Click(object sender, EventArgs e)
         {
-            Item item = new Item()
+            if (OnCreateItem != null)
             {
-                ItemName = txtEditItemName.Text,
-                ItemDescription = txtEditItemDescription.Text,
-                // ImageDrawableID = imgUpload
-            };
 
-            //database.InsertIntoTableItem(item);
-            Toast.MakeText(Activity, "Your item has been added", ToastLength.Long).Show();
-            Dismiss();
+
+                OnCreateItem.Invoke(this, new AddItemToListEventArgs(txtEditItemName.Text, txtEditItemDescription.Text));
+                //Item item = new Item()
+                //{
+                //    ItemName = txtEditItemName.Text,
+                //    ItemDescription = txtEditItemDescription.Text,
+                //    // ImageDrawableID = imgUpload
+                //};
+
+                //database.InsertIntoTableItem(item);
+                Toast.MakeText(Activity, "Your item has been added", ToastLength.Long).Show();
+            }
+            this.Dismiss();
             
 
         }

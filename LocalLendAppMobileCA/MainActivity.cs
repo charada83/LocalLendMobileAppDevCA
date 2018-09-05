@@ -14,17 +14,7 @@ using Android.Runtime;
 
 namespace LocalLendAppMobileCA
 {
-    public class AddItemToListEventArgs : EventArgs
-    {
-        public string ItemName { get; set; }
-        public string ItemDescription { get; set; }
-
-        public AddItemToListEventArgs(string itemName, string itemDesc)
-        {
-            ItemName = itemName;
-            ItemDescription = itemDesc;
-        }
-    }
+   
 
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
@@ -36,8 +26,6 @@ namespace LocalLendAppMobileCA
         ListView lvItems;
         BorrowListAdapter adapter;
         EditText txtSearch;
-
-        public EventHandler<AddItemToListEventArgs> OnCreateItem;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -67,7 +55,7 @@ namespace LocalLendAppMobileCA
             List<Item> searchedItems = (from item in itemList
                                         where item.ItemName.ToLower().StartsWith(itemToLower)
                                         select item).ToList<Item>();
-
+            
             adapter = new BorrowListAdapter(this, searchedItems);
             lvItems.Adapter = adapter;
         }
@@ -77,6 +65,24 @@ namespace LocalLendAppMobileCA
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             LendDialogFrg lendDialog = new LendDialogFrg();
             lendDialog.Show(transaction, "lendDialog fragment");
+
+            lendDialog.OnCreateItem += LendDialog_OnCreateItem;
+        }
+
+        private void LendDialog_OnCreateItem(object sender, AddItemToListEventArgs e)
+        {
+            Item item = new Item()
+            { ItemName = e.ItemName,
+            ItemDescription = e.ItemDescription
+            };
+
+            database.InsertIntoTableItem(item);
+
+            LoadItemsFromDataStore();
+            
+            adapter = new BorrowListAdapter(this, itemList);
+            lvItems.Adapter = adapter;
+            adapter.NotifyDataSetChanged();
 
         }
 
@@ -94,13 +100,14 @@ namespace LocalLendAppMobileCA
 
         private void LoadItemsFromDataStore()
         {
-            itemList.Add(new Item("Power Drill", "Powerful Tool", Resource.Drawable.powerdrill));
-            itemList.Add(new Item("Wheelbarrow", "Good condition, can lend for up to 3 days", Resource.Drawable.wheelbarrow));
-            //IEnumerable<Item> items = database.GetItems();
-            //itemList = items.ToList();
+            //itemList.Add(new Item("Power Drill", "Powerful Tool", Resource.Drawable.powerdrill));
+            //itemList.Add(new Item("Wheelbarrow", "Good condition, can lend for up to 3 days", Resource.Drawable.wheelbarrow));
+            IEnumerable<Item> items = database.GetItems();
+            itemList = items.ToList();
         }
 
-        
+       
+
     }
 }
 

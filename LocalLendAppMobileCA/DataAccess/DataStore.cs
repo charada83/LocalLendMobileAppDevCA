@@ -55,10 +55,10 @@ namespace LocalLendAppMobileCA.DataAccess
                 using (SQLiteConnection cxn = new SQLiteConnection(DBLocation))
                 {
                     TableQuery<Item> query = cxn.Table<Item>();
-                    if (query.Count() == 0)
-                    {
+                    //if (query.Count() == 0)
+                    //{
                         cxn.Insert(item);
-                    }
+                    //}
                 }
 
             }
