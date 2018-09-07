@@ -41,6 +41,7 @@ namespace LocalLendAppMobileCA
         private EditText txtEditItemName;
         private EditText txtEditItemDescription;
         private ImageView imgUpload;
+        private String imgUri;
         private Button btnAddImage;
         private Button btnAddItem;
         private Button btnCancel;
@@ -93,6 +94,7 @@ namespace LocalLendAppMobileCA
             if ((requestCode == ChooseImageId) && (resultCode == Result.Ok))
             {
                 Android.Net.Uri selectedImage = data.Data;
+                imgUri = selectedImage.ToString();
                 imgUpload.SetImageURI(selectedImage);
 
             }
@@ -109,7 +111,7 @@ namespace LocalLendAppMobileCA
             
             if (OnCreateItem != null)
             {
-                OnCreateItem.Invoke(this, new AddItemToListEventArgs(txtEditItemName.Text, txtEditItemDescription.Text, imgUpload.ToString()));
+                OnCreateItem.Invoke(this, new AddItemToListEventArgs(txtEditItemName.Text, txtEditItemDescription.Text, imgUri));
 
                 Toast.MakeText(Activity, "Your item has been added", ToastLength.Long).Show();
             }

@@ -48,11 +48,14 @@ namespace LocalLendAppMobileCA.Adapters
                 var lblItemNameView = itemInfoRowView.FindViewById<TextView>(Resource.Id.lblBorrowItemName);
                 var lblItemDescription = itemInfoRowView.FindViewById<TextView>(Resource.Id.lblBorrowItemDescription);
 
-                //if (ItemList[position].ItemImage != null)
+                if (ItemList[position].ItemImage != null)
                 //{
+                // Android.Net.Uri uri = Android.Net.Uri.Parse(ItemList[position].ItemImage);
+                // itemImageView.SetImageURI(uri);
+                // itemImageView.SetImageURI(Android.Net.Uri.Parse("content://com.android.providers.media.documents/document/image%3A38"));
 
                     itemImageView.SetImageURI(Android.Net.Uri.Parse(ItemList[position].ItemImage));
-                    //itemImageView.SetImageBitmap(Android.Graphics.BitmapFactory.DecodeByteArray(ItemList[position].ItemImage, 0, ItemList[position].ItemImage.Length));
+                //itemImageView.SetImageBitmap(Android.Graphics.BitmapFactory.DecodeByteArray(ItemList[position].ItemImage, 0, ItemList[position].ItemImage.Length));
                 //}
 
                 itemViewHolder = new BorrowListAdapterViewHolder(itemImageView, lblItemNameView, lblItemDescription);
@@ -62,8 +65,12 @@ namespace LocalLendAppMobileCA.Adapters
             }
 
             itemViewHolder = itemInfoRowView.Tag as BorrowListAdapterViewHolder;
+
+            // "content://com.android.providers.media.documents/document/image%3A38"
+            //itemViewHolder.ItemImage.SetImageURI(Android.Net.Uri.Parse("content://com.android.providers.media.documents/document/image%3A67"));
             itemViewHolder.ItemImage.SetImageURI(Android.Net.Uri.Parse(ItemList[position].ItemImage));
             itemViewHolder.ItemName.Text = ItemList[position].ItemName;
+            // itemViewHolder.ItemName.Text = "Test";
             itemViewHolder.ItemDescription.Text = ItemList[position].ItemDescription;
 
             return itemInfoRowView;

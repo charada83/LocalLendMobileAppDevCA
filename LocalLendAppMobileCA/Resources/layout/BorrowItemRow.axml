@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imageViewBorrowItem"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
+		android:src="@drawable/uploadimagedefault"
         android:padding="5dp" />
     <TextView
         android:id="@+id/lblBorrowItemName"
