@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Java.IO;
 using LocalLendAppMobileCA.DataAccess;
+using static Android.Graphics.Bitmap;
 
 namespace LocalLendAppMobileCA
 {
@@ -18,11 +22,13 @@ namespace LocalLendAppMobileCA
     {
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
+        public string Image { get; set; }
 
-        public AddItemToListEventArgs(string itemName, string itemDesc) : base()
+        public AddItemToListEventArgs(string itemName, string itemDesc, string image) : base()
         {
             ItemName = itemName;
             ItemDescription = itemDesc;
+            Image = image;
         }
     }
 
@@ -61,6 +67,8 @@ namespace LocalLendAppMobileCA
             btnAddItem = lendView.FindViewById<Button>(Resource.Id.btnAddItem);
             btnCancel = lendView.FindViewById<Button>(Resource.Id.btnCancel);
 
+
+
             btnAddItem.Click += BtnAddItem_Click;
             btnCancel.Click += BtnCancel_Click;
             btnAddImage.Click += BtnAddImage_Click;
@@ -74,7 +82,7 @@ namespace LocalLendAppMobileCA
             uploadImageIntent.SetType("image/*");
             uploadImageIntent.SetAction(Intent.ActionGetContent);
             StartActivityForResult(Intent.CreateChooser(uploadImageIntent, "Choose Image"), ChooseImageId);
-           
+
         }
 
         //Returns image from Gallery to LendDialog
@@ -86,6 +94,7 @@ namespace LocalLendAppMobileCA
             {
                 Android.Net.Uri selectedImage = data.Data;
                 imgUpload.SetImageURI(selectedImage);
+
             }
 
         }
@@ -97,14 +106,15 @@ namespace LocalLendAppMobileCA
         //Adds item to DB after sumbission in LendDialog
         private void BtnAddItem_Click(object sender, EventArgs e)
         {
+            
             if (OnCreateItem != null)
             {
-                OnCreateItem.Invoke(this, new AddItemToListEventArgs(txtEditItemName.Text, txtEditItemDescription.Text));
-                
+                OnCreateItem.Invoke(this, new AddItemToListEventArgs(txtEditItemName.Text, txtEditItemDescription.Text, imgUpload.ToString()));
+
                 Toast.MakeText(Activity, "Your item has been added", ToastLength.Long).Show();
             }
             this.Dismiss();
-            
+
         }
 
         public override void OnActivityCreated(Bundle savedInstanceState)
@@ -114,4 +124,5 @@ namespace LocalLendAppMobileCA
         }
 
     }
+   
 }

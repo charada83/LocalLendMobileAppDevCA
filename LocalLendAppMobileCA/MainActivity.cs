@@ -14,7 +14,7 @@ using Android.Runtime;
 
 namespace LocalLendAppMobileCA
 {
-   
+
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
     public class MainActivity : AppCompatActivity
     {
@@ -37,6 +37,8 @@ namespace LocalLendAppMobileCA
             lvItems = FindViewById<ListView>(Resource.Id.lvItems);
             txtSearch = FindViewById<EditText>(Resource.Id.txtSearch);
 
+            // myImage.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
+
             LoadItemsFromDataStore();
 
             adapter = new BorrowListAdapter(this, itemList);
@@ -45,7 +47,7 @@ namespace LocalLendAppMobileCA
             txtSearch.TextChanged += TxtSearch_TextChanged;
             lvItems.ItemClick += LvItems_ItemClick;
             btnLend.Click += BtnLend_Click;
-           
+
         }
 
         //Search filters based on typing item name
@@ -55,7 +57,7 @@ namespace LocalLendAppMobileCA
             List<Item> searchedItems = (from item in itemList
                                         where item.ItemName.ToLower().StartsWith(itemToLower)
                                         select item).ToList<Item>();
-            
+
             adapter = new BorrowListAdapter(this, searchedItems);
             lvItems.Adapter = adapter;
         }
@@ -74,14 +76,17 @@ namespace LocalLendAppMobileCA
         private void LendDialog_OnCreateItem(object sender, AddItemToListEventArgs e)
         {
             Item item = new Item()
-            { ItemName = e.ItemName,
-            ItemDescription = e.ItemDescription
+            {
+                ItemName = e.ItemName,
+                ItemDescription = e.ItemDescription,
+                ItemImage = e.Image.ToString()
+
             };
 
             database.InsertIntoTableItem(item);
 
             LoadItemsFromDataStore();
-            
+
             adapter = new BorrowListAdapter(this, itemList);
             lvItems.Adapter = adapter;
             adapter.NotifyDataSetChanged();
@@ -94,8 +99,8 @@ namespace LocalLendAppMobileCA
             var itemClickPosition = e.Position;
             var item = itemList[itemClickPosition] as Item;
             Intent getItem = new Intent(this, typeof(BorrowItemDetailActivity));
-            getItem.PutExtra("itemName", item.ItemName.ToString());
-            getItem.PutExtra("itemDescription", item.ItemDescription.ToString());
+            getItem.PutExtra("itemName", item.ItemName);
+            getItem.PutExtra("itemDescription", item.ItemDescription);
             getItem.PutExtra("itemImage", item.ItemImage);
 
             StartActivity(getItem);
@@ -110,7 +115,7 @@ namespace LocalLendAppMobileCA
             itemList = items.ToList();
         }
 
-       
+
 
     }
 }

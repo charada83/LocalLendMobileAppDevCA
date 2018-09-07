@@ -6,7 +6,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
 	android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp">
+    android:layout_marginRight="20dp"
+	android:padding="20dp">
     <EditText
         android:id="@+id/txtEditItemName"
         android:layout_width="match_parent"
@@ -52,7 +53,6 @@
         android:text="@string/addItem"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="#BA66CD"
         android:height="70dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
@@ -68,7 +68,6 @@
         android:text="@string/cancel"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="#BA66CD"
         android:height="70dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"

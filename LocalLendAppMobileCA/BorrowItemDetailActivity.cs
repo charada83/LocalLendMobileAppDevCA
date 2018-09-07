@@ -35,11 +35,11 @@ namespace LocalLendAppMobileCA
 
             string itemName = Intent.GetStringExtra("itemName");
             string itemDesc = Intent.GetStringExtra("itemDescription");
-            int itemImage = Intent.GetIntExtra("itemImage", 0); //---need to convert byte[]?
+            string itemImage = Intent.GetStringExtra("itemImage"); //---need to convert byte[]?
 
             lblItemName.Text = itemName.ToString();
             lblItemDescription.Text = itemDesc.ToString();
-            imgItemPhoto.SetImageResource(itemImage);
+            imgItemPhoto.SetImageURI(Android.Net.Uri.Parse(itemImage));
 
             btnContactLender.Click += BtnContactLender_Click;
             btnBackToList.Click += BtnBackToList_Click;

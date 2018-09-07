@@ -21,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
-
         android:hint="Your Message"
         android:paddingLeft="10dp" />
     <RelativeLayout
@@ -37,7 +36,6 @@
             android:text="@string/sendMessage"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:background="#BA66CD"
             android:layout_centerHorizontal="true"
             android:height="70dp"
             android:paddingBottom="10dp"
@@ -52,7 +50,6 @@
             android:text="@string/cancel"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:background="#BA66CD"
             android:layout_centerHorizontal="true"
             android:height="70dp"
             android:paddingBottom="10dp"
