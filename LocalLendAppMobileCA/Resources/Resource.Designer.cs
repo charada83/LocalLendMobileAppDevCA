@@ -2453,20 +2453,20 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f0800af
 			public const int btnAddItem = 2131230895;
 			
+			// aapt resource value: 0x7f080093
+			public const int btnBack = 2131230867;
+			
+			// aapt resource value: 0x7f08009a
+			public const int btnCancel = 2131230874;
+			
 			// aapt resource value: 0x7f080092
-			public const int btnBack = 2131230866;
+			public const int btnContactLender = 2131230866;
+			
+			// aapt resource value: 0x7f08008d
+			public const int btnLend = 2131230861;
 			
 			// aapt resource value: 0x7f080099
-			public const int btnCancel = 2131230873;
-			
-			// aapt resource value: 0x7f080091
-			public const int btnContactLender = 2131230865;
-			
-			// aapt resource value: 0x7f08008c
-			public const int btnLend = 2131230860;
-			
-			// aapt resource value: 0x7f080098
-			public const int btnSendMessage = 2131230872;
+			public const int btnSendMessage = 2131230873;
 			
 			// aapt resource value: 0x7f0800aa
 			public const int btnStartBorrowing = 2131230890;
@@ -2501,14 +2501,14 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f080039
 			public const int collapseActionView = 2131230777;
 			
-			// aapt resource value: 0x7f08009c
-			public const int container = 2131230876;
+			// aapt resource value: 0x7f08009d
+			public const int container = 2131230877;
 			
 			// aapt resource value: 0x7f080066
 			public const int contentPanel = 2131230822;
 			
-			// aapt resource value: 0x7f08009d
-			public const int coordinator = 2131230877;
+			// aapt resource value: 0x7f08009e
+			public const int coordinator = 2131230878;
 			
 			// aapt resource value: 0x7f08006d
 			public const int custom = 2131230829;
@@ -2522,20 +2522,20 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f080060
 			public const int default_activity_button = 2131230816;
 			
-			// aapt resource value: 0x7f08009f
-			public const int design_bottom_sheet = 2131230879;
+			// aapt resource value: 0x7f0800a0
+			public const int design_bottom_sheet = 2131230880;
+			
+			// aapt resource value: 0x7f0800a7
+			public const int design_menu_item_action_area = 2131230887;
 			
 			// aapt resource value: 0x7f0800a6
-			public const int design_menu_item_action_area = 2131230886;
+			public const int design_menu_item_action_area_stub = 2131230886;
 			
 			// aapt resource value: 0x7f0800a5
-			public const int design_menu_item_action_area_stub = 2131230885;
+			public const int design_menu_item_text = 2131230885;
 			
 			// aapt resource value: 0x7f0800a4
-			public const int design_menu_item_text = 2131230884;
-			
-			// aapt resource value: 0x7f0800a3
-			public const int design_navigation_view = 2131230883;
+			public const int design_navigation_view = 2131230884;
 			
 			// aapt resource value: 0x7f080020
 			public const int disableHome = 2131230752;
@@ -2600,11 +2600,11 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f08005f
 			public const int image = 2131230815;
 			
-			// aapt resource value: 0x7f080093
-			public const int imageViewBorrowItem = 2131230867;
+			// aapt resource value: 0x7f080094
+			public const int imageViewBorrowItem = 2131230868;
 			
-			// aapt resource value: 0x7f08008e
-			public const int imgItemPhoto = 2131230862;
+			// aapt resource value: 0x7f08008f
+			public const int imgItemPhoto = 2131230863;
 			
 			// aapt resource value: 0x7f0800ad
 			public const int imgUpload = 2131230893;
@@ -2618,23 +2618,23 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
 			
-			// aapt resource value: 0x7f08009b
-			public const int largeLabel = 2131230875;
+			// aapt resource value: 0x7f08009c
+			public const int largeLabel = 2131230876;
+			
+			// aapt resource value: 0x7f080096
+			public const int lblBorrowItemDescription = 2131230870;
 			
 			// aapt resource value: 0x7f080095
-			public const int lblBorrowItemDescription = 2131230869;
-			
-			// aapt resource value: 0x7f080094
-			public const int lblBorrowItemName = 2131230868;
+			public const int lblBorrowItemName = 2131230869;
 			
 			// aapt resource value: 0x7f0800a9
 			public const int lblIntro = 2131230889;
 			
-			// aapt resource value: 0x7f080090
-			public const int lblItemDescription = 2131230864;
+			// aapt resource value: 0x7f080091
+			public const int lblItemDescription = 2131230865;
 			
-			// aapt resource value: 0x7f08008f
-			public const int lblItemName = 2131230863;
+			// aapt resource value: 0x7f080090
+			public const int lblItemName = 2131230864;
 			
 			// aapt resource value: 0x7f080049
 			public const int left = 2131230793;
@@ -2651,8 +2651,8 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f08008d
-			public const int lvItems = 2131230861;
+			// aapt resource value: 0x7f08008e
+			public const int lvItems = 2131230862;
 			
 			// aapt resource value: 0x7f0800c5
 			public const int masked = 2131230917;
@@ -2672,8 +2672,8 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f080028
 			public const int multiply = 2131230760;
 			
-			// aapt resource value: 0x7f0800a2
-			public const int navigation_header_container = 2131230882;
+			// aapt resource value: 0x7f0800a3
+			public const int navigation_header_container = 2131230883;
 			
 			// aapt resource value: 0x7f08003b
 			public const int never = 2131230779;
@@ -2795,14 +2795,14 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f080025
 			public const int showTitle = 2131230757;
 			
-			// aapt resource value: 0x7f08009a
-			public const int smallLabel = 2131230874;
+			// aapt resource value: 0x7f08009b
+			public const int smallLabel = 2131230875;
+			
+			// aapt resource value: 0x7f0800a2
+			public const int snackbar_action = 2131230882;
 			
 			// aapt resource value: 0x7f0800a1
-			public const int snackbar_action = 2131230881;
-			
-			// aapt resource value: 0x7f0800a0
-			public const int snackbar_text = 2131230880;
+			public const int snackbar_text = 2131230881;
 			
 			// aapt resource value: 0x7f080043
 			public const int snap = 2131230787;
@@ -2852,8 +2852,8 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f080069
 			public const int textSpacerNoTitle = 2131230825;
 			
-			// aapt resource value: 0x7f0800a7
-			public const int text_input_password_toggle = 2131230887;
+			// aapt resource value: 0x7f0800a8
+			public const int text_input_password_toggle = 2131230888;
 			
 			// aapt resource value: 0x7f080014
 			public const int textinput_counter = 2131230740;
@@ -2873,8 +2873,8 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f08006f
 			public const int title_template = 2131230831;
 			
-			// aapt resource value: 0x7f0800a8
-			public const int toolbar = 2131230888;
+			// aapt resource value: 0x7f08008b
+			public const int toolbar = 2131230859;
 			
 			// aapt resource value: 0x7f08003e
 			public const int top = 2131230782;
@@ -2882,8 +2882,8 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f08006e
 			public const int topPanel = 2131230830;
 			
-			// aapt resource value: 0x7f08009e
-			public const int touch_outside = 2131230878;
+			// aapt resource value: 0x7f08009f
+			public const int touch_outside = 2131230879;
 			
 			// aapt resource value: 0x7f08000f
 			public const int transition_current_scene = 2131230735;
@@ -2906,14 +2906,14 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f0800ab
 			public const int txtEditItemName = 2131230891;
 			
-			// aapt resource value: 0x7f080096
-			public const int txtFullname = 2131230870;
-			
 			// aapt resource value: 0x7f080097
-			public const int txtMessage = 2131230871;
+			public const int txtFullname = 2131230871;
 			
-			// aapt resource value: 0x7f08008b
-			public const int txtSearch = 2131230859;
+			// aapt resource value: 0x7f080098
+			public const int txtMessage = 2131230872;
+			
+			// aapt resource value: 0x7f08008c
+			public const int txtSearch = 2131230860;
 			
 			// aapt resource value: 0x7f08002d
 			public const int uniform = 2131230765;
@@ -3188,7 +3188,10 @@ namespace LocalLendAppMobileCA
 			public const int support_simple_spinner_dropdown_item = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int tooltip = 2130968641;
+			public const int Toolbar = 2130968641;
+			
+			// aapt resource value: 0x7f040042
+			public const int tooltip = 2130968642;
 			
 			static Layout()
 			{
@@ -4299,6 +4302,9 @@ namespace LocalLendAppMobileCA
 			
 			// aapt resource value: 0x7f0a010d
 			public const int ThemeOverlay_AppCompat_Light = 2131362061;
+			
+			// aapt resource value: 0x7f0a0181
+			public const int TitleTextApperance = 2131362177;
 			
 			// aapt resource value: 0x7f0a010e
 			public const int Widget_AppCompat_ActionBar = 2131362062;

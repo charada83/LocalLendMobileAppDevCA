@@ -35,7 +35,7 @@ namespace LocalLendAppMobileCA
 
             string itemName = Intent.GetStringExtra("itemName");
             string itemDesc = Intent.GetStringExtra("itemDescription");
-            string itemImage = Intent.GetStringExtra("itemImage"); //---need to convert byte[]?
+            string itemImage = Intent.GetStringExtra("itemImage"); 
 
             lblItemName.Text = itemName.ToString();
             lblItemDescription.Text = itemDesc.ToString();

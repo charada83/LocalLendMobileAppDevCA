@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -24,8 +25,6 @@ namespace LocalLendAppMobileCA
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            //RequestWindowFeature(WindowFeatures.NoTitle);
-
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.HomePage);
             // Create your application here
@@ -33,6 +32,7 @@ namespace LocalLendAppMobileCA
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
             SupportActionBar.Title = "LocalLend";
+            toolbar.SetTitleTextAppearance(this, Resource.Style.TitleTextApperance);
 
             lblIntro = FindViewById<TextView>(Resource.Id.lblIntro);
             btnStartBorrowing = FindViewById<Button>(Resource.Id.btnStartBorrowing);

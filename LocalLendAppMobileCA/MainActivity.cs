@@ -11,6 +11,7 @@ using System.Linq;
 using Android.Views;
 using Android.Support.V4.View;
 using Android.Runtime;
+using Android.Support.V7.Widget;
 
 namespace LocalLendAppMobileCA
 {
@@ -25,6 +26,7 @@ namespace LocalLendAppMobileCA
         ListView lvItems;
         BorrowListAdapter adapter;
         EditText txtSearch;
+        Android.Support.V7.Widget.Toolbar toolbar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,11 +35,14 @@ namespace LocalLendAppMobileCA
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = "LocalLend";
+            toolbar.SetTitleTextAppearance(this, Resource.Style.TitleTextApperance);
+
             btnLend = FindViewById<Button>(Resource.Id.btnLend);
             lvItems = FindViewById<ListView>(Resource.Id.lvItems);
             txtSearch = FindViewById<EditText>(Resource.Id.txtSearch);
-
-            // myImage.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
 
             LoadItemsFromDataStore();
 
@@ -80,7 +85,6 @@ namespace LocalLendAppMobileCA
                 ItemName = e.ItemName,
                 ItemDescription = e.ItemDescription,
                 ItemImage = e.Image.ToString()
-
             };
 
             database.InsertIntoTableItem(item);
@@ -109,8 +113,10 @@ namespace LocalLendAppMobileCA
         //Loads items to BorrowList from Database
         private void LoadItemsFromDataStore()
         {
+            /*Test List*/
             //itemList.Add(new Item("Power Drill", "Powerful Tool", Resource.Drawable.powerdrill));
             //itemList.Add(new Item("Wheelbarrow", "Good condition, can lend for up to 3 days", Resource.Drawable.wheelbarrow));
+
             IEnumerable<Item> items = database.GetItems();
             itemList = items.ToList();
         }

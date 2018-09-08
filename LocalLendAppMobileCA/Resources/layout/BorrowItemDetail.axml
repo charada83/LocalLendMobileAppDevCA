@@ -8,21 +8,25 @@
         android:id="@+id/imgItemPhoto"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1" 
+		android:layout_marginTop="10dp"/>
     <TextView
         android:id="@+id/lblItemName"
         android:gravity="center"
         android:text="Item name goes here"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.25" />
+        android:layout_weight="0.25"
+		android:textSize="25sp"
+		android:textStyle="bold" />
     <TextView
         android:id="@+id/lblItemDescription"
         android:gravity="center"
         android:text="Item Description Goes Here"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.75" />
+        android:layout_weight="0.75"
+		android:textSize="18sp" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

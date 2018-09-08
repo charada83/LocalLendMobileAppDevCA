@@ -41,7 +41,7 @@ namespace LocalLendAppMobileCA
         private EditText txtEditItemName;
         private EditText txtEditItemDescription;
         private ImageView imgUpload;
-        private String imgUri;
+        private string imgUri;
         private Button btnAddImage;
         private Button btnAddItem;
         private Button btnCancel;
@@ -68,8 +68,6 @@ namespace LocalLendAppMobileCA
             btnAddItem = lendView.FindViewById<Button>(Resource.Id.btnAddItem);
             btnCancel = lendView.FindViewById<Button>(Resource.Id.btnCancel);
 
-
-
             btnAddItem.Click += BtnAddItem_Click;
             btnCancel.Click += BtnCancel_Click;
             btnAddImage.Click += BtnAddImage_Click;
@@ -83,7 +81,6 @@ namespace LocalLendAppMobileCA
             uploadImageIntent.SetType("image/*");
             uploadImageIntent.SetAction(Intent.ActionGetContent);
             StartActivityForResult(Intent.CreateChooser(uploadImageIntent, "Choose Image"), ChooseImageId);
-
         }
 
         //Returns image from Gallery to LendDialog
@@ -96,7 +93,6 @@ namespace LocalLendAppMobileCA
                 Android.Net.Uri selectedImage = data.Data;
                 imgUri = selectedImage.ToString();
                 imgUpload.SetImageURI(selectedImage);
-
             }
 
         }
