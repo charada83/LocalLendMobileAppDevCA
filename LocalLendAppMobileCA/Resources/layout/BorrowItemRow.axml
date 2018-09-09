@@ -1,27 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="100dp"
+	android:orientation="horizontal"
+	android:layout_marginTop="10dp"
+	android:layout_marginRight="10dp"
+	android:layout_marginLeft="10dp"
+	android:weightSum="4">
+	<LinearLayout
+	android:layout_width="0dp"
     android:layout_height="match_parent"
-	android:layout_marginTop="10dp">
+	android:orientation="horizontal"
+	android:layout_weight="1">
     <ImageView
         android:id="@+id/imageViewBorrowItem"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
 		android:src="@drawable/uploadimagedefault"
-        android:padding="5dp"
-		android:layout_marginLeft="10dp"/>
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="5dp"/>
+	</LinearLayout>
+	<LinearLayout
+	android:layout_width="0dp"
+    android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:layout_weight="2"
+	android:weightSum="3">
     <TextView
         android:id="@+id/lblBorrowItemName"
         android:layout_toRightOf="@+id/imageViewBorrowItem"
         android:text="Item name goes here"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+		android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp" 
-		android:layout_marginLeft="10dp"/>
+        android:layout_height="0dp"
+        android:padding="5dp"
+		android:layout_weight="1"/>
     <TextView
         android:id="@+id/lblBorrowItemDescription"
         android:layout_toRightOf="@+id/imageViewBorrowItem"
@@ -29,18 +46,26 @@
         android:text="Item Description Goes Here"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp" />
+        android:layout_height="0dp"
+        android:padding="5dp"
+		android:layout_weight="2"/>
+	</LinearLayout>
+	<LinearLayout
+	android:layout_width="0dp"
+    android:layout_height="match_parent"
+	android:orientation="horizontal"
+	android:layout_weight="1">
 	<TextView
         android:id="@+id/lblAvailability"
         android:layout_toRightOf="@+id/lblBorrowItemDescription"
 		android:layout_below="@+id/lblBorrowItemName"
         android:text="@string/available"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="20dp" 
 		android:textColor="#02D411"
-		
-	/>
-</RelativeLayout>
+		android:layout_gravity="center_horizontal|center_vertical"
+		/>
+	</LinearLayout>
+</LinearLayout>
