@@ -32,7 +32,11 @@ namespace LocalLendAppMobileCA
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
             SupportActionBar.Title = "LocalLend";
+            //toolbar.SetLogo(Resource.Drawable.logo);
+            
             toolbar.SetTitleTextAppearance(this, Resource.Style.TitleTextApperance);
+            //toolbar.SetLogo(Resource.Drawable.logo);
+            
 
             lblIntro = FindViewById<TextView>(Resource.Id.lblIntro);
             btnStartBorrowing = FindViewById<Button>(Resource.Id.btnStartBorrowing);
@@ -46,5 +50,11 @@ namespace LocalLendAppMobileCA
             Intent openMainBorrowListIntent = new Intent(this, typeof(MainActivity));
             StartActivity(openMainBorrowListIntent);
         }
+
+        //public override bool OnCreateOptionsMenu(IMenu menu)
+        //{
+        //    MenuInflater.Inflate(Resource.Menu.toolbarmenu, menu);
+        //    return base.OnCreateOptionsMenu(menu);
+        //}
     }
 }

@@ -39,6 +39,7 @@ namespace LocalLendAppMobileCA
             SetSupportActionBar(toolbar);
             SupportActionBar.Title = "LocalLend";
             toolbar.SetTitleTextAppearance(this, Resource.Style.TitleTextApperance);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             btnLend = FindViewById<Button>(Resource.Id.btnLend);
             lvItems = FindViewById<ListView>(Resource.Id.lvItems);
@@ -121,8 +122,18 @@ namespace LocalLendAppMobileCA
             itemList = items.ToList();
         }
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+                    return true;
 
-
+                default:
+                    return base.OnOptionsItemSelected(item);
+           }
+        }
     }
 }
 

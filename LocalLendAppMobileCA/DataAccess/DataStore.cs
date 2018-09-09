@@ -88,5 +88,40 @@ namespace LocalLendAppMobileCA.DataAccess
                 throw;
             }
         }
+
+        public void UpdateItemTable(Item item)
+        {
+            try
+            {
+                using (SQLiteConnection cxn = new SQLiteConnection(DBLocation))
+                {
+                    cxn.Query<Item>("UPDATE Item SET ItemName=?, ItemDescription=?, ItemImage=? " +
+                        "WHERE ItemID=?", item.ItemName, item.ItemDescription, item.ItemImage, item.ItemID);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public void DeleteTableItem(Item item)
+        {
+            try
+            {
+                using (SQLiteConnection cxn = new SQLiteConnection(DBLocation))
+                {
+                    cxn.Delete(item);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
     }
 }
