@@ -15,4 +15,7 @@
   <string name="startBorrowing">Start Borrowing</string>
   <string name="intro">Welcome to LocalLend where you can find items you may only need for a short period of time and borrow from or lend to your community. 
   Save money, save time, save the environment!</string>
+  <string name="returnItem">Return</string>
+  <string name="available">Available</string>
+  <string name="borrowed">Borrowed</string>
 </resources>

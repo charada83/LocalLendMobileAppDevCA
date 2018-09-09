@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="2">
+    android:weightSum="2"
+	>
     <ImageView
         android:id="@+id/imgItemPhoto"
         android:layout_width="match_parent"
@@ -27,6 +28,31 @@
         android:layout_height="0dp"
         android:layout_weight="0.75"
 		android:textSize="18sp" />
+	<LinearLayout
+		android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+		android:layout_marginLeft="20dp"
+		android:layout_marginRight="20dp"
+		android:layout_marginBottom="40dp">
+		<Button
+		android:id="@+id/btnBorrowItem"
+		android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:text="@string/borrow"
+		android:layout_weight="0.5"
+		android:backgroundTint="?android:attr/colorControlNormal"
+		android:textColor="#FFF"/>
+		<Button
+		android:id="@+id/btnReturnItem"
+		android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:text="@string/returnItem"
+		android:layout_weight="0.5"
+		android:backgroundTint="?android:attr/colorControlNormal"
+		android:textColor="#FFF"/>
+	</LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
