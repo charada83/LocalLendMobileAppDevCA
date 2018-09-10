@@ -23,12 +23,14 @@ namespace LocalLendAppMobileCA
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
         public string Image { get; set; }
+        public string Availability { get; set; }
 
-        public AddItemToListEventArgs(string itemName, string itemDesc, string image) : base()
+        public AddItemToListEventArgs(string itemName, string itemDesc, string image, string availability) : base()
         {
             ItemName = itemName;
             ItemDescription = itemDesc;
             Image = image;
+            Availability = availability;
         }
     }
 
@@ -45,6 +47,7 @@ namespace LocalLendAppMobileCA
         private Button btnAddImage;
         private Button btnAddItem;
         private Button btnCancel;
+        private string availability;
 
         public event EventHandler<AddItemToListEventArgs> OnCreateItem;
 
@@ -104,15 +107,24 @@ namespace LocalLendAppMobileCA
         //Adds item to DB after sumbission in LendDialog
         private void BtnAddItem_Click(object sender, EventArgs e)
         {
-            
-            if (OnCreateItem != null)
+            if (string.IsNullOrEmpty(txtEditItemName.Text) | string.IsNullOrEmpty(txtEditItemDescription.Text))
             {
-                OnCreateItem.Invoke(this, new AddItemToListEventArgs(txtEditItemName.Text, txtEditItemDescription.Text, imgUri));
-
-                Toast.MakeText(Activity, "Your item has been added", ToastLength.Long).Show();
+                Toast toastMsg = Toast.MakeText(Activity, Resource.String.validFields, ToastLength.Short);
+                toastMsg.SetGravity(GravityFlags.CenterHorizontal | GravityFlags.CenterVertical, 0, 0);
+                toastMsg.Show();
             }
-            this.Dismiss();
+            else
+            {
+                if (OnCreateItem != null)
+                {
+                    availability = "Available";
+                    OnCreateItem.Invoke(this, new AddItemToListEventArgs(txtEditItemName.Text, txtEditItemDescription.Text, imgUri, availability));
 
+                    Toast.MakeText(Activity, Resource.String.itemAdded, ToastLength.Long).Show();
+
+                    this.Dismiss();
+                }
+            }          
         }
 
         public override void OnActivityCreated(Bundle savedInstanceState)

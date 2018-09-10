@@ -47,13 +47,14 @@ namespace LocalLendAppMobileCA.Adapters
                 var itemImageView = itemInfoRowView.FindViewById<ImageView>(Resource.Id.imageViewBorrowItem);
                 var lblItemNameView = itemInfoRowView.FindViewById<TextView>(Resource.Id.lblBorrowItemName);
                 var lblItemDescription = itemInfoRowView.FindViewById<TextView>(Resource.Id.lblBorrowItemDescription);
+                var lblAvailability = itemInfoRowView.FindViewById<TextView>(Resource.Id.lblAvailability);
 
                 if (ItemList[position].ItemImage != null)
                 {
                     itemImageView.SetImageURI(Android.Net.Uri.Parse(ItemList[position].ItemImage));              
                 }
 
-                itemViewHolder = new BorrowListAdapterViewHolder(itemImageView, lblItemNameView, lblItemDescription);
+                itemViewHolder = new BorrowListAdapterViewHolder(itemImageView, lblItemNameView, lblItemDescription, lblAvailability);
 
                 itemInfoRowView.Tag = itemViewHolder;
 
@@ -64,6 +65,7 @@ namespace LocalLendAppMobileCA.Adapters
             itemViewHolder.ItemImage.SetImageURI(Android.Net.Uri.Parse(ItemList[position].ItemImage));
             itemViewHolder.ItemName.Text = ItemList[position].ItemName;
             itemViewHolder.ItemDescription.Text = ItemList[position].ItemDescription;
+            itemViewHolder.Availability.Text = ItemList[position].Availability;
 
             return itemInfoRowView;
         }
@@ -88,6 +90,7 @@ namespace LocalLendAppMobileCA.Adapters
         {
             ItemList.Clear();
         }
+
     }
 
 }

@@ -25,16 +25,20 @@ namespace LocalLendAppMobileCA.DataAccess
 
         [MaxLength(140)]
         public string ItemDescription { get; set; }
+
         public string ItemImage { get; set; }
+
+        public string Availability { get; set; }
 
         public Item()
         { }
 
-        public Item(string itemName, string itemDescription, string itemImage)
+        public Item(string itemName, string itemDescription, string itemImage, string availability)
         {
             ItemName = itemName;
             ItemDescription = itemDescription;
             ItemImage = itemImage;
+            Availability = availability;
         }
     }
 }

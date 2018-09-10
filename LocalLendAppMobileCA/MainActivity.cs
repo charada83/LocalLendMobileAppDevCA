@@ -27,6 +27,7 @@ namespace LocalLendAppMobileCA
         BorrowListAdapter adapter;
         EditText txtSearch;
         Android.Support.V7.Widget.Toolbar toolbar;
+        Item item;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,6 +41,7 @@ namespace LocalLendAppMobileCA
             SupportActionBar.Title = "LocalLend";
             toolbar.SetTitleTextAppearance(this, Resource.Style.TitleTextApperance);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            toolbar.SetLogo(Resource.Drawable.logo);
 
             btnLend = FindViewById<Button>(Resource.Id.btnLend);
             lvItems = FindViewById<ListView>(Resource.Id.lvItems);
@@ -81,13 +83,14 @@ namespace LocalLendAppMobileCA
         //Adds item and refreshes BorrowList in MainActivity 
         private void LendDialog_OnCreateItem(object sender, AddItemToListEventArgs e)
         {
-            Item item = new Item()
+            item = new Item()
             {
                 ItemName = e.ItemName,
                 ItemDescription = e.ItemDescription,
-                ItemImage = e.Image.ToString()
-            };
-
+                ItemImage = e.Image.ToString(),
+                Availability = e.Availability
+            };           
+            
             database.InsertIntoTableItem(item);
 
             LoadItemsFromDataStore();
@@ -116,7 +119,7 @@ namespace LocalLendAppMobileCA
         {
             /*Test List*/
             //itemList.Add(new Item("Power Drill", "Powerful Tool", Resource.Drawable.powerdrill));
-            //itemList.Add(new Item("Wheelbarrow", "Good condition, can lend for up to 3 days", Resource.Drawable.wheelbarrow));
+            //itemList.Add(new Item("Wheelbarrow", "Good condition, Can lend for up to 3 days", Resource.Drawable.wheelbarrow));
 
             IEnumerable<Item> items = database.GetItems();
             itemList = items.ToList();
@@ -134,6 +137,16 @@ namespace LocalLendAppMobileCA
                     return base.OnOptionsItemSelected(item);
            }
         }
+
+        //protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        //{
+        //    if (requestCode==200 && resultCode==Result.Ok)
+        //    {
+        //        string availabilityStatus = data.GetStringExtra("Borrowed");
+        //        item.Availability = availabilityStatus;
+        //        adapter.NotifyDataSetChanged();
+        //    }
+        //}
     }
 }
 

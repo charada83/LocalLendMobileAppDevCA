@@ -18,4 +18,6 @@
   <string name="returnItem">Return</string>
   <string name="available">Available</string>
   <string name="borrowed">Borrowed</string>
+  <string name="itemAdded">Your Item has been added</string>
+  <string name="validFields">Please insert a name and description for your item</string>
 </resources>

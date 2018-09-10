@@ -55,16 +55,28 @@ namespace LocalLendAppMobileCA
             btnReturnItem.Click += BtnReturnItem_Click;
         }
 
+        //Couldn't find a solution to change the status from Available to Borrowed in ItemList
         private void BtnReturnItem_Click(object sender, EventArgs e)
         {
             btnBorrowItem.Enabled = true;
             btnReturnItem.Enabled = false;
+
+            
+            //Intent returnedIntent = new Intent();
+            //returnedIntent.PutExtra("Available", "@string/available");
+            //SetResult(Result.Ok, returnedIntent);
+            //Finish();
         }
 
         private void BtnBorrowItem_Click(object sender, EventArgs e)
         {
             btnBorrowItem.Enabled = false;
             btnReturnItem.Enabled = true;
+
+            Intent borrowedIntent = new Intent();
+            borrowedIntent.PutExtra("Borrowed", "@string/borrowed");
+            SetResult(Result.Ok, borrowedIntent);
+            Finish();
         }
 
         private void BtnBackToList_Click(object sender, EventArgs e)

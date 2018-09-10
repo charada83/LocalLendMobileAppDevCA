@@ -3375,6 +3375,9 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f090035
 			public const int intro = 2131296309;
 			
+			// aapt resource value: 0x7f090039
+			public const int itemAdded = 2131296313;
+			
 			// aapt resource value: 0x7f09002b
 			public const int lend = 2131296299;
 			
@@ -3410,6 +3413,9 @@ namespace LocalLendAppMobileCA
 			
 			// aapt resource value: 0x7f090029
 			public const int title = 2131296297;
+			
+			// aapt resource value: 0x7f09003a
+			public const int validFields = 2131296314;
 			
 			static String()
 			{
@@ -4326,6 +4332,9 @@ namespace LocalLendAppMobileCA
 			
 			// aapt resource value: 0x7f0a0181
 			public const int TitleTextApperance = 2131362177;
+			
+			// aapt resource value: 0x7f0a0182
+			public const int ToolbarColoredBackArrow = 2131362178;
 			
 			// aapt resource value: 0x7f0a010e
 			public const int Widget_AppCompat_ActionBar = 2131362062;
