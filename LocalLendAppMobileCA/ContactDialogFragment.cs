@@ -50,7 +50,7 @@ namespace LocalLendAppMobileCA
 
         private void BtnSendMessage_Click(object sender, EventArgs e)
         {
-            Toast.MakeText(Activity, "Thank You! Your message has been sent", ToastLength.Long).Show();
+            Toast.MakeText(Activity, Resource.String.contactToast, ToastLength.Long).Show();
             Dismiss();
         }
     }

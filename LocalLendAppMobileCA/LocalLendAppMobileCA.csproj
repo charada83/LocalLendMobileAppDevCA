@@ -162,7 +162,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\search.svg" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\logo.png" />
   </ItemGroup>

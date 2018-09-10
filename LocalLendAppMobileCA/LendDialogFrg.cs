@@ -77,7 +77,7 @@ namespace LocalLendAppMobileCA
             return lendView;
         }
 
-        //Opens phones gallery to select an image
+        //Opens phone gallery to select an image
         private void BtnAddImage_Click(object sender, EventArgs e)
         {
             Intent uploadImageIntent = new Intent();

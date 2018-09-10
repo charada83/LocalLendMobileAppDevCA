@@ -9,12 +9,14 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using LocalLendAppMobileCA.DataAccess;
 
 namespace LocalLendAppMobileCA
 {
     [Activity(Label = "Item Details")]
     public class BorrowItemDetailActivity : Activity
     {
+
         ImageView imgItemPhoto;
         TextView lblItemName;
         TextView lblItemDescription;
@@ -23,6 +25,7 @@ namespace LocalLendAppMobileCA
         Button btnBackToList;
         Button btnBorrowItem;
         Button btnReturnItem;
+        string itemAvailability;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,7 +46,8 @@ namespace LocalLendAppMobileCA
 
             string itemName = Intent.GetStringExtra("itemName");
             string itemDesc = Intent.GetStringExtra("itemDescription");
-            string itemImage = Intent.GetStringExtra("itemImage"); 
+            string itemImage = Intent.GetStringExtra("itemImage");
+            itemAvailability = Intent.GetStringExtra("itemAvailability");
 
             lblItemName.Text = itemName.ToString();
             lblItemDescription.Text = itemDesc.ToString();
@@ -55,12 +59,11 @@ namespace LocalLendAppMobileCA
             btnReturnItem.Click += BtnReturnItem_Click;
         }
 
-        //Couldn't find a solution to change the status from Available to Borrowed in ItemList
+        //Didn't find a solution to change the status from Available to Borrowed in ItemList
         private void BtnReturnItem_Click(object sender, EventArgs e)
         {
             btnBorrowItem.Enabled = true;
             btnReturnItem.Enabled = false;
-
             
             //Intent returnedIntent = new Intent();
             //returnedIntent.PutExtra("Available", "@string/available");

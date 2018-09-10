@@ -63,7 +63,7 @@ namespace LocalLendAppMobileCA
         {
             var itemToLower = txtSearch.Text.ToLower();
             List<Item> searchedItems = (from item in itemList
-                                        where item.ItemName.ToLower().StartsWith(itemToLower)
+                                        where item.ItemName.ToLower().StartsWith(itemToLower) || item.ItemName.ToLower().Contains(itemToLower)
                                         select item).ToList<Item>();
 
             adapter = new BorrowListAdapter(this, searchedItems);
@@ -110,16 +110,17 @@ namespace LocalLendAppMobileCA
             getItem.PutExtra("itemName", item.ItemName);
             getItem.PutExtra("itemDescription", item.ItemDescription);
             getItem.PutExtra("itemImage", item.ItemImage);
+            getItem.PutExtra("itemAvailability", item.Availability);
 
-            StartActivity(getItem);
+            StartActivityForResult(getItem, 200);
         }
 
         //Loads items to BorrowList from Database
         private void LoadItemsFromDataStore()
         {
             /*Test List*/
-            //itemList.Add(new Item("Power Drill", "Powerful Tool", Resource.Drawable.powerdrill));
-            //itemList.Add(new Item("Wheelbarrow", "Good condition, Can lend for up to 3 days", Resource.Drawable.wheelbarrow));
+            //itemList.Add(new Item("Power Drill", "Powerful Tool", Resource.Drawable.powerdrill, "Available"));
+            //itemList.Add(new Item("Wheelbarrow", "Good condition, Can lend for up to 3 days", Resource.Drawable.wheelbarrow, "Borrowed"));
 
             IEnumerable<Item> items = database.GetItems();
             itemList = items.ToList();
@@ -138,15 +139,19 @@ namespace LocalLendAppMobileCA
            }
         }
 
-        //protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
-        //{
-        //    if (requestCode==200 && resultCode==Result.Ok)
-        //    {
-        //        string availabilityStatus = data.GetStringExtra("Borrowed");
-        //        item.Availability = availabilityStatus;
-        //        adapter.NotifyDataSetChanged();
-        //    }
-        //}
+        //Not working yet
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        {
+            if (requestCode == 200 && resultCode == Result.Ok)
+            {
+                item = new Item();
+                string availabilityStatus = data.GetStringExtra("Borrowed");
+                item.Availability = availabilityStatus;
+
+                database.UpdateItemTable(item);
+                adapter.NotifyDataSetChanged();
+            }
+        }
     }
 }
 

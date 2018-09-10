@@ -59,7 +59,7 @@
         android:id="@+id/lblAvailability"
         android:layout_toRightOf="@+id/lblBorrowItemDescription"
 		android:layout_below="@+id/lblBorrowItemName"
-        android:text="@string/available"
+        android:text="Availability"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

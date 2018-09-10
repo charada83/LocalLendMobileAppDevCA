@@ -20,4 +20,5 @@
   <string name="borrowed">Borrowed</string>
   <string name="itemAdded">Your Item has been added</string>
   <string name="validFields">Please insert a name and description for your item</string>
+  <string name="contactToast">Thank You! Your message has been sent</string>
 </resources>

@@ -35,7 +35,7 @@ namespace LocalLendAppMobileCA.DataAccess
             {
                 using (SQLiteConnection cxn = new SQLiteConnection(DBLocation))
                 {
-                    cxn.DropTable<Item>();
+                   // cxn.DropTable<Item>();
 
                     cxn.CreateTable<Item>();
                 }
@@ -95,8 +95,8 @@ namespace LocalLendAppMobileCA.DataAccess
             {
                 using (SQLiteConnection cxn = new SQLiteConnection(DBLocation))
                 {
-                    cxn.Query<Item>("UPDATE Item SET ItemName=?, ItemDescription=?, ItemImage=? " +
-                        "WHERE ItemID=?", item.ItemName, item.ItemDescription, item.ItemImage, item.ItemID);
+                    cxn.Query<Item>("UPDATE Item SET ItemName=?, ItemDescription=?, ItemImage=?, Availability=? " +
+                        "WHERE ItemID=?", item.ItemName, item.ItemDescription, item.ItemImage, item.ItemID, item.Availability);
                 }
 
             }

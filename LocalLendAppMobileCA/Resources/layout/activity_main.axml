@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 	>
-	<!--<include layout="@layout/Toolbar"
+	<!--Include not working properly with RelativeLayout
+	<include layout="@layout/Toolbar"
 		android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
@@ -23,6 +24,10 @@
 		android:layout_below="@+id/toolbar"
         android:gravity="center"
         android:hint="Search Items"
+		android:background="@android:drawable/editbox_background"
+		android:layout_marginBottom="5dp"
+		android:layout_marginRight="5dp"
+		android:layout_marginLeft="5dp"
 		/>
     <Button
         android:id="@+id/btnLend"

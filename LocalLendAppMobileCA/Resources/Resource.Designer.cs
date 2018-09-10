@@ -3366,6 +3366,9 @@ namespace LocalLendAppMobileCA
 			// aapt resource value: 0x7f09002f
 			public const int contactLender = 2131296303;
 			
+			// aapt resource value: 0x7f09003b
+			public const int contactToast = 2131296315;
+			
 			// aapt resource value: 0x7f09002e
 			public const int deleteItem = 2131296302;
 			
